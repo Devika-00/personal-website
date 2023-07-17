@@ -1,13 +1,18 @@
-function sendEmail() {
-    Email.send({
-        Host : "smtp.elasticemail.com",
-        Username : "devu1011depu@gmail.com",
-        Password : "6CF852D1989EF2A8FDAFB01A6437BFBA13B8",
-        To : 'devu1011depu@gmail.com',
-        From : document.getElementById("email").value,
-        Subject : document.getElementById("subject").value,
-        Body : document.getElementById("message").value
-    }).then(
-      message => alert(message)
-    );
-}
+
+$("#submit-form").submit((e)=>{
+  e.preventDefault()
+  $.ajax({
+      url:"https://script.google.com/macros/s/AKfycbxrr_RtGB8Zk4SMtVzLOszTbx-5ZWZ_432g2u8qDqSfnWgqth4XKAoJu0vGqFndQS3Q/exec",
+      data:$("#submit-form").serialize(),
+      method:"post",
+      success:function (response){
+          alert("Form submitted successfully")
+          // window.location.reload()
+          window.location.href="index.html"
+      },
+      error:function (err){
+          alert("Something Error")
+
+      }
+  })
+})
